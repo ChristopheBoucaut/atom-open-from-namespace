@@ -1,11 +1,11 @@
 module.exports =
 class OpenFromNamespaceView
-  constructor: (serializedState) ->
+    constructor: (serializedState) ->
 
-  # Returns an object that can be retrieved when package is activated
-  serialize: ->
+    # Returns an object that can be retrieved when package is activated
+    serialize: ->
 
-  # Tear down any state and detach
-  destroy: ->
+    # Tear down any state and detach
+    destroy: ->
 
-  getElement: ->
+    getElement: ->
