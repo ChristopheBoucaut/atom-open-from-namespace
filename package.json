@@ -8,7 +8,7 @@
   "activationCommands": {
     "atom-workspace": "open-from-namespace:toggle"
   },
-  "repository": "https://github.com/atom/open-from-namespace",
+  "repository": "https://github.com/ChristopheBoucaut/atom-open-from-namespace",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
