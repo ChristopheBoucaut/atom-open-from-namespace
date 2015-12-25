@@ -6,7 +6,7 @@
   "keywords": [
   ],
   "activationCommands": {
-    "atom-workspace": "open-from-namespace:toggle"
+    "atom-workspace": "open-from-namespace:list-namespace"
   },
   "repository": "https://github.com/ChristopheBoucaut/atom-open-from-namespace",
   "license": "MIT",

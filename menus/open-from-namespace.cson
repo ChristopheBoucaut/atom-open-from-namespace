@@ -1,4 +1,13 @@
-'context-menu': [
-]
+'context-menu':
+     'atom-text-editor': [
+        { 'label': 'List all namespace', 'command': 'open-from-namespace:list-namespace' }
+    ]
 'menu': [
+    'label': 'Packages'
+    'submenu': [
+        'label': 'Open from namespace'
+        'submenu': [
+            { 'label': 'List all namespace', 'command': 'open-from-namespace:list-namespace' }
+        ]
+    ]
 ]
