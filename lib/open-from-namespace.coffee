@@ -20,18 +20,14 @@ module.exports = OpenFromNamespace =
         openFromNamespaceViewState: @openFromNamespaceView.serialize()
 
     listNamespace: ->
-        console.log 'List namespace'
-        @checkIsPhp()
+        unless @checkIsPhp()
+            return
 
     checkIsPhp: ->
         editor = atom.workspace.getActiveTextEditor()
-        console.log editor.getGrammar().scopeName
-        console.log @listScopePhp
-        console.log @listScopePhp.indexOf editor.getGrammar().scopeName
 
-        if @listScopePhp.indexOf editor.getGrammar().scopeName == -1
-            # alert ('this is not a PHP file')
-            console.log 'this is not a PHP file'
-            return
+        if @listScopePhp.indexOf(editor.getGrammar().scopeName) is -1
+            alert('This plugin work only on a PHP file.')
+            return false
 
-        console.log 'this is a PHP file'
+        return true
