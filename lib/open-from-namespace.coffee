@@ -1,4 +1,4 @@
-OpenFromNamespaceView = require './open-from-namespace-view'
+OpenFromNamespaceListView = require './open-from-namespace-list-view'
 {CompositeDisposable} = require 'atom'
 
 module.exports = OpenFromNamespace =
@@ -7,17 +7,17 @@ module.exports = OpenFromNamespace =
     listScopePhp: ['text.html.php', 'source.php']
 
     activate: (state) ->
-        @openFromNamespaceView = new OpenFromNamespaceView(state.openFromNamespaceViewState)
+        @openFromNamespaceListView = new OpenFromNamespaceListView(state.openFromNamespaceListViewState)
 
         @commandSubscription = atom.commands.add 'atom-workspace',
             'open-from-namespace:list-namespace': => @listNamespace()
 
     deactivate: ->
         @commandSubscription.dispose()
-        @openFromNamespaceView.destroy()
+        @openFromNamespaceListView.destroy()
 
     serialize: ->
-        openFromNamespaceViewState: @openFromNamespaceView.serialize()
+        openFromNamespaceListViewState: @openFromNamespaceListView.serialize()
 
     listNamespace: ->
         unless @checkIsPhp()
@@ -32,6 +32,10 @@ module.exports = OpenFromNamespace =
         (@findNamespaceInUseLine line for line in linesWithNamespaces)
         listNamespaces = (@findNamespaceInUseLine line for line in linesWithNamespaces)
         listNamespaces = @formatListNamespacesAndTransform(listNamespaces)
+
+        @openFromNamespaceListView.setItems(listNamespaces)
+        unless @openFromNamespaceListView.panelIsVisible()
+            @openFromNamespaceListView.showPanel()
 
     checkIsPhp: ->
         editor = atom.workspace.getActiveTextEditor()
