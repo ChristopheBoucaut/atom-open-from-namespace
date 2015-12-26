@@ -1,10 +1,9 @@
 {
   "name": "open-from-namespace",
   "main": "./lib/open-from-namespace",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Open a PHP file from this namespace",
-  "keywords": [
-  ],
+  "keywords": [],
   "activationCommands": {
     "atom-workspace": "open-from-namespace:list-namespace"
   },
