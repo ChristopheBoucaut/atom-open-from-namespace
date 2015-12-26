@@ -1,4 +1,5 @@
 {SelectListView} = require 'atom-space-pen-views'
+utils = require './utils'
 
 module.exports =
 class OpenFromNamespaceListView extends SelectListView
@@ -10,8 +11,10 @@ class OpenFromNamespaceListView extends SelectListView
         "<li>#{item}</li>"
 
     confirmed: (item) ->
+        # Turn the namespace into a path
+        path = utils.turnNamespaceIntoPath(item)
         # Copy the path
-        atom.clipboard.write(item)
+        atom.clipboard.write(path)
         # Hide panel
         @panel.hide()
         # Open the fuzzy-finder package

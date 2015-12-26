@@ -31,7 +31,7 @@ module.exports = OpenFromNamespace =
         linesWithNamespaces = code.match(/\n\s*use\s*[^;]*/g)
         (@findNamespaceInUseLine line for line in linesWithNamespaces)
         listNamespaces = (@findNamespaceInUseLine line for line in linesWithNamespaces)
-        listNamespaces = @formatListNamespacesAndTransform(listNamespaces)
+        listNamespaces = @normalizeListNamespaces(listNamespaces)
 
         @openFromNamespaceListView.setItems(listNamespaces)
         unless @openFromNamespaceListView.panelIsVisible()
@@ -50,21 +50,16 @@ module.exports = OpenFromNamespace =
         # Remove return to the line and useless space and remove the "use".
         return line.replace(/[\n|\s|,]+/g, ' ').replace(/^\s*use\s*/, '').split(' ')
 
-    formatListNamespacesAndTransform: (listNamespaces) ->
+    normalizeListNamespaces: (listNamespaces) ->
         listNamespacesUnique = [];
         for key, namespaces of listNamespaces
             if namespaces instanceof Array
                 for keyInNamespaces, namespace of namespaces
-                    namespace = @turnNamespaceIntoPath(namespace)
                     if listNamespacesUnique.indexOf(namespace) is -1
                         listNamespacesUnique.push(namespace)
             else
                 # Just a string ?
-                namespace = @turnNamespaceIntoPath(namespaces)
-                if listNamespacesUnique.indexOf(namespace) is -1
-                    listNamespacesUnique.push(namespace)
+                if listNamespacesUnique.indexOf(namespaces) is -1
+                    listNamespacesUnique.push(namespaces)
 
         return listNamespacesUnique
-
-    turnNamespaceIntoPath: (namespace) ->
-        return namespace.replace(/\\/g, '/')
