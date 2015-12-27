@@ -29,6 +29,9 @@ module.exports = OpenFromNamespace =
 
         # Find "use" and clean namespace and turn them into paths
         linesWithNamespaces = code.match(/\n\s*use\s*[^;]*/g)
+        unless linesWithNamespaces
+            alert('No namespace found')
+            return
         (@findNamespaceInUseLine line for line in linesWithNamespaces)
         listNamespaces = (@findNamespaceInUseLine line for line in linesWithNamespaces)
         listNamespaces = @normalizeListNamespaces(listNamespaces)
