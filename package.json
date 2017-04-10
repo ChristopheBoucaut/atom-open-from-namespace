@@ -1,6 +1,6 @@
 {
   "name": "open-from-namespace",
-  "main": "./lib/open-from-namespace",
+  "main": "./lib/open-from-namespace.js",
   "version": "0.2.1",
   "description": "Open a PHP file from this namespace",
   "keywords": [],
