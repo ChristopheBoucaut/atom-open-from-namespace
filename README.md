@@ -7,4 +7,4 @@ With this package, you can open a PHP file from this namespace. The package use 
 Two choices !
 
 * Open the command palette (ctrl-shift-P). Select "Open from namespace: List namespace" in a PHP file. Select the namespace which you want open. Paste (ctrl+v) in the modal opened just after.
-* ```alt+click``` on a namespace in a PHP file.
+* ```alt+click``` on a namespace in a PHP file. Paste (ctrl+v) in the modal opened just after.
