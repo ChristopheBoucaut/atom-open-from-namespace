@@ -11,6 +11,8 @@ use
     Not\My\Cls\AnotherClass\UseWithMultipleNamespace2,
     Not\My\Cls\AnotherClass\UseWithMultipleNamespace3;
 
+use Not\My\Cls\AnotherClass\UseWithMultipleNamespace10 as ATest;
+
 /**
  * Test
  */
@@ -24,6 +26,7 @@ class Test extends AnotherClass
 
     function useMyFunction()
     {
+        $i = new \Test\Inline();
     }
 
     function myUseFunction()

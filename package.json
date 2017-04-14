@@ -4,9 +4,6 @@
   "version": "0.2.1",
   "description": "Open a PHP file from this namespace",
   "keywords": [],
-  "activationCommands": {
-    "atom-workspace": "open-from-namespace:list-namespace"
-  },
   "repository": "https://github.com/ChristopheBoucaut/atom-open-from-namespace",
   "license": "MIT",
   "engines": {
