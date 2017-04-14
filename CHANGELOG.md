@@ -1,3 +1,7 @@
+# v0.3.1
+
+* Fix the documentation.
+
 # v0.3.0
 
 * Switch the code on JS
