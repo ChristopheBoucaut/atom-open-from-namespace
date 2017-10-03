@@ -1,3 +1,8 @@
+# v0.3.2
+
+* Fix scopes used to find namespaces.
+* Fix CSS classes used to add the click event.
+
 # v0.3.1
 
 * Fix the documentation.
